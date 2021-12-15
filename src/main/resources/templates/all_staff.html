@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock-In Page</title>
+    <link th:href="@{/css/clockIn.css}" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <div class="nav">
+        <img th:src="@{/images/logo.png}" alt="My logo" />
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/allStaff}">List of Staff</a></button>
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/allStaffAttendance}">Staff Attendance</a></button>
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/showregistrationpage}">Register new Staff</a></button>
+
+        <h1>LIST OF ALL REGISTERED STAFF.</h1>
+    </div>
+</header>
+
+<main>
+    <div class="design" >
+        <table>
+            <thead>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>Staff Name</th>
+                    <th>Staff Role</th>
+                    <th></th>
+                </tr>
+
+            </thead>
+
+            <tbody th:each="staff: ${all_Staff}">
+                <tr>
+                    <td th:text="${staff.getId()}"> 5 </td>
+                    <td th:text="${staff.getFirstName() + ' ' + staff.getLastName()}" ></td>
+                    <td th:text="${staff.getRole()}"></td>
+                    <td style="margin-right: 5px" ><button><a th:href="${'/edit_form/' + staff.getEmail()}">Edit</a></button><button><a th:href="${'/delete/' + staff.getEmail()}">Delete</a></button></td>
+                </tr>
+            </tbody>
+
+
+
+        </table>
+
+    </div>
+
+    <div>
+
+        <button type="submit"><a th:href="@{/logout}" > Log_Out</a></button>
+    </div>
+
+
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock-In Page</title>
+    <link th:href="@{/css/admin.css}" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <div class="nav">
+        <img th:src="@{/images/logo.png}" alt="My logo" />
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/allStaff}">List of Staff</a></button>
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/allStaffAttendance}">Staff Attendance</a></button>
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/showregistrationpage}">Register new Staff</a></button>
+        <h1 th:text="${'Welcome, ' + staff.getFirstName()}">Welcome, Staff Name</h1>
+
+    </div>
+
+
+</header>
+
+<main>
+    <div class="design">
+        <h3 th:text="${'Staff ID: ' + staff.getId()}">Staff ID:</h3>
+        <h3 th:text="${'Staff Name: ' + staff.getFirstName() + ' ' + staff.getLastName()}">Staff Name:</h3>
+        <h3 th:text="${'Department: ' + staff.getDepartment()}">Department:</h3>
+<!--        <h3>Number Of Days Present:</h3>-->
+
+    </div>
+
+    <div>
+        <button  id="clockIn"><a th:href="@{/attendance}">Clock-In</a></button>
+        <button type="submit"><a th:href="@{/logout}" > Log_Out</a></button>
+    </div>
+
+
+</main>
+
+
+</body>
+</html>

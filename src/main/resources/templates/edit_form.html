@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock-In Page</title>
+    <link th:href="@{/css/admin.css}" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <div class="nav">
+        <img th:src="@{/images/logo.png}" alt="My logo" />
+
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/allStaff}">List of Staff</a></button>
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/allStaffAttendance}">Staff Attendance</a></button>
+        <button style="border: none; background: none; outline: none"><a href="#" class="primary" style="color: whitesmoke; font-size: 30px; background: none; outline: none; border: none" th:href="@{/showregistrationpage}">Register new Staff</a></button>
+
+        <h1>Register New Staff</h1>
+    </div>
+
+</header>
+
+<main>
+    <form th:action="@{/edit}" method="post"
+          style="max-width: 80%; margin: 0 auto;"
+          th:object="${staff}">
+
+        <div class="div1">
+
+            <div class="form">
+                <label class="col">Staff ID</label>
+
+                <input type="text" class="form-control" name="staffId" required
+                       minlength="1" maxlength="100" th:value="${staff.getId()}"/>
+
+            </div>
+
+            <div class="form">
+                <label class="col">First Name</label>
+
+                <input type="text" class="form-control"name="firstName" required
+                       minlength="2" maxlength="20" th:value="${staff.getFirstName()}"/>
+
+            </div>
+
+            <div class="form">
+                <label class="col">Last Name</label>
+
+                <input type="text" class="form-control" name="lastName" required
+                       minlength="2" maxlength="20" th:value="${staff.getLastName()}"/>
+
+            </div>
+
+
+            <div class="form">
+                <label class="col">Password</label>
+
+                <input type="password" class="form-control" name="password" required
+                       minlength="2" maxlength="10" th:value="${staff.getPassword()}"/>
+
+            </div>
+
+
+            <div class="form">
+                <label class="col">Department</label>
+
+                <input type="text" class="form-control" name="department" required
+                       minlength="2" maxlength="20" th:value="${staff.getDepartment()}"/>
+
+            </div>
+
+            <div class="form">
+                <label class="col">User Type</label>
+                <select name="role" id="" class="col">
+                    <option value="">Select role</option>
+                    <option value="REGULAR">REGULAR</option>
+                    <option value="ADMIN">ADMIN</option>
+                </select>
+            </div>
+
+            <div>
+                <button type="submit" class="primary">Edit Form</button>
+            </div>
+
+        </div>
+    </form>
+
+
+</main>
+
+<script th:inline="javascript">
+    // $(document).ready(function(){
+    //     $('#code').hide().delay(3000).fadeIn('slow');
+    // });
+    function hide(){
+        document.getElementById("code").style.display="none"
+    }
+
+    setTimeout(hide, 4000);
+
+    function hide1(){
+        document.getElementById("code1").style.display="none"
+    }
+
+    setTimeout(hide1, 4000);
+</script>
+
+<div>
+
+    <button type="submit"><a th:href="@{/logout}" > Log_Out</a></button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    background-image: url("../images/background_image.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+/*.div1{*/
+/*    border: 5px solid ;*/
+/*}*/
+
+.div2{
+    margin: 10px;
+}
+
+.row1{
+    color: black;
+    margin: 10px;
+    font: 1em sans-serif;
+    width: 100px;
+
+}
+label{
+    width: 100px;
+}
