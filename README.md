@@ -1,1 +1,1 @@
-# week-8-task-MunaRuby
+# task-MunaRuby
